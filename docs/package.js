@@ -1,4 +1,4 @@
 config = {
-    name: "E-Lawyer",
+    name: "QMS Api",
     version: "2.1"
 }
