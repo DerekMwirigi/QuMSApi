@@ -1,0 +1,28 @@
+{
+    "createValidModel":{
+        "mobile":"String|9|20",
+        "password":"TEXT||"
+    },
+    "viewModel":{
+        "entityType":1,
+        "columns":{
+            "id":"",
+            "code":"",
+            "firstName":"",
+            "lastName":"",
+            "mobile":"",
+            "email":"",
+            "password":"",
+            "token":"",
+            "countyId":"",
+            "subCountyId":"",
+            "wardId":"",
+            "avatar":"",
+            "roleId":"",
+            "companyId":"",
+            "statusCode":"",
+            "statusName":""
+        },
+        "keyModel":null
+    }
+}
