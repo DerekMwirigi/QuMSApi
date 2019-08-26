@@ -1,0 +1,33 @@
+{
+    "createValidModel":{
+        "dateTime":"TEXT|9|20"
+    },
+    "viewModel":{
+        "entityType":4,
+        "columns":{
+            "id":"",
+            "patientId":"",
+            "dateTime":"",
+            "uploads":"",
+            "description":"",
+            "createdOn":"",
+            "statusCode":"",
+            "statusName":""
+        },
+        "keyModel":null
+    },
+    "getList":{
+        "entityType":4,
+        "columns":{
+            "id":"",
+            "patientId":"",
+            "dateTime":"",
+            "uploads":"",
+            "description":"",
+            "createdOn":"",
+            "statusCode":"",
+            "statusName":""
+        },
+        "keyModel":null
+    }
+}

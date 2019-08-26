@@ -12,7 +12,10 @@
             "systemconfig",//0
             "users",//1
             "user_roles",//2
-            "patients"
+            "patients",//3
+            "appointments",//4
+            "visits",//5
+            "videos"//6
         );
         
         protected $defaultOrderOption = "DESC";
@@ -92,12 +95,12 @@
         }
 
         protected function delete ($entityName, $keyModel){
-            if(!count($keyModel) > 0) { return array(0, 'Missing values'); }
+            if(!empty($keyModel)) { return array(0, 'Missing values'); }
             try{
                 global $db;
                 $db->debug = $this->debug;
                 $sqlStatement = "DELETE FROM $entityName WHERE ";
-                if(count($keyModel) > 0){
+                if(!empty($keyModel)){
                     $currentItem = 0;
                     foreach($keyModel as $keyItem=>$valueItem)
                     {
@@ -123,7 +126,7 @@
                 if($entityName != NULL){
                     if($keyModel != NULL){
                         $sqlStatement = "SELECT * FROM " . $entityName . " WHERE ";
-                        if(count($keyModel) > 0){
+                        if(!empty($keyModel)){
                             $currentItem = 0;
                             foreach($keyModel as $keyItem=>$valueItem)
                             {
@@ -140,7 +143,7 @@
                 }
                 $resultData = $db->GetOne($sqlStatement);
                 if($db->errorMsg() == null){
-                    if(count($resultData) > 0){
+                    if(!empty($resultData)){
                         return array(1, 'Found row.', $resultData);
                     }else{
                         return array(0, 'No items found.', null);
@@ -160,7 +163,7 @@
                 if($entityName != NULL){
                     if($keyModel != NULL){
                         $sqlStatement = "SELECT * FROM " . $entityName . " WHERE ";
-                        if(count($keyModel) > 0){
+                        if(!empty($keyModel)){
                             $currentItem = 0;
                             foreach($keyModel as $keyItem=>$valueItem)
                             {
@@ -177,7 +180,7 @@
                 }
                 $resultData = $db->GetRow($sqlStatement);
                 if($db->errorMsg() == null){
-                    if(count($resultData) > 0){
+                    if(!empty($resultData)){
                         return array(1, 'Found row.', $this->utils->desanitizePair($resultData));
                     }else{
                         return array(0, 'No items found.', null);
@@ -197,7 +200,7 @@
                 if($entityName != NULL){
                     if($keyModel != NULL){
                         $sqlStatement = "SELECT * FROM " . $entityName . " WHERE ";
-                        if(count($keyModel) > 0){
+                        if(!empty($keyModel)){
                             $currentItem = 0;
                             foreach($keyModel as $keyItem=>$valueItem)
                             {
@@ -229,7 +232,7 @@
                 }
                 $resultData = $db->GetArray($sqlStatement);
                 if($db->errorMsg() == null){
-                    if(count($resultData) > 0){
+                    if(!empty($resultData)){
                         $resData = array();
                         foreach($resultData as $row){
                             array_push($resData, $this->utils->desanitizePair($row));
@@ -253,7 +256,7 @@
                 $resultData = $db->GetArray($sqlStatement);
                 //echo "<br/>" . $sqlStatement;
                 if($db->errorMsg() == null){
-                    if(count($resultData) > 0){
+                    if(!empty($resultData)){
                         $resData = array();
                         foreach($resultData as $row){
                             array_push($resData, $this->utils->desanitizePair($row));
@@ -420,7 +423,7 @@
         }
         
         protected function formatSearchKeys ($keyModel){
-            if(!count($keyModel) > 0) { return $keyModel; }
+            if(!!empty($keyModel)) { return $keyModel; }
             $tempModel = array();
             foreach($keyModel as $key=>$value){
                 if (strpos($value, '=') !== false) {

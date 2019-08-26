@@ -25,7 +25,7 @@
                 "roleId"=>$authModel["roleId"],
                 "password"=>$this->utils->encryptPassword($authModel["password"]),
                 "firebaseToken"=>null,
-                "image"=>"https://www.noetwo.com/98-home_default/reflexion.jpg"
+                "avatar"=>"https://www.noetwo.com/98-home_default/reflexion.jpg"
             ));
             if($dbRes[0] == 1){
                 return $this->verifyUSecret(array(

@@ -1,0 +1,33 @@
+{
+    "createValidModel":{
+        "title":"TEXT|9|20"
+    },
+    "viewModel":{
+        "entityType":6,
+        "columns":{
+            "id":"",
+            "title":"",
+            "description":"",
+            "link":"",
+            "createdOn":"",
+            "createdById":"",
+            "statusCode":"",
+            "statusName":""
+        },
+        "keyModel":null
+    },
+    "getList":{
+        "entityType":6,
+        "columns":{
+            "id":"",
+            "title":"",
+            "description":"",
+            "link":"",
+            "createdOn":"",
+            "createdById":"",
+            "statusCode":"",
+            "statusName":""
+        },
+        "keyModel":null
+    }
+}

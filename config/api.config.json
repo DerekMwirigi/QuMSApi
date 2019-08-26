@@ -26,25 +26,58 @@
                 "url":"api/auth/signup",
                 "method":"POST"
             },
-            "verifyuid":{
-                "state":1,
-                "url":"api/auth/verifyuid",
-                "method":"POST"
-            },
             "verifyusecret":{
                 "state":1,
                 "url":"api/auth/verifyusecret",
                 "method":"POST"
-            },
-            "requestotp":{
+            }
+        },
+        "appointment":{
+            "create":{
                 "state":1,
-                "url":"api/auth/requestotp",
-                "method":"POST"
+                "url":"api/appointment/create",
+                "method":"POST",
+                "oauthToken":1
             },
-            "verifyotp":{
+            "fetch":{
                 "state":1,
-                "url":"api/auth/verifyotp",
-                "method":"POST"
+                "url":"api/appointment/fetch",
+                "method":"GET",
+                "oauthToken":1
+            }
+        },
+        "video":{
+            "create":{
+                "state":1,
+                "url":"api/video/create",
+                "method":"POST",
+                "oauthToken":1
+            },
+            "fetch":{
+                "state":1,
+                "url":"api/video/fetch",
+                "method":"GET",
+                "oauthToken":0
+            },
+            "view":{
+                "state":1,
+                "url":"api/video/view",
+                "method":"GET",
+                "oauthToken":0
+            }
+        },
+        "visit":{
+            "create":{
+                "state":1,
+                "url":"api/visit/create",
+                "method":"POST",
+                "oauthToken":1
+            },
+            "fetch":{
+                "state":1,
+                "url":"api/visit/fetch",
+                "method":"GET",
+                "oauthToken":1
             }
         },
         "account":{
@@ -72,7 +105,7 @@
                 "state":1,
                 "url":"api/analytics/data-blocks",
                 "method":"GET",
-                "oauthToken":0
+                "oauthToken":1
             }
         }
     }

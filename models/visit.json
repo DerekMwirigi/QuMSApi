@@ -1,0 +1,35 @@
+{
+    "createValidModel":{
+        "dateTime":"TEXT|9|20"
+    },
+    "viewModel":{
+        "entityType":5,
+        "columns":{
+            "id":"",
+            "patientId":"",
+            "appointmentId":"",
+            "doctorId":"",
+            "diagnosis":"",
+            "prescriptions":"",
+            "createdOn":"",
+            "statusCode":"",
+            "statusName":""
+        },
+        "keyModel":null
+    },
+    "getList":{
+        "entityType":5,
+        "columns":{
+            "id":"",
+            "patientId":"",
+            "appointmentId":"",
+            "doctorId":"",
+            "diagnosis":"",
+            "prescriptions":"",
+            "createdOn":"",
+            "statusCode":"",
+            "statusName":""
+        },
+        "keyModel":null
+    }
+}

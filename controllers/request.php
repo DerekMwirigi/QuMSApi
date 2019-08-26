@@ -113,7 +113,7 @@
         } 
 
         private function verifyAauthToken ($oauthToken){
-            foreach(array("users", "lwy", "clients") as $accountType){
+            foreach(array("users", "patients") as $accountType){
                 $dbRes = $this->fetchRow($accountType, array("token"=>$oauthToken));
                 if($dbRes[0] == 1 && count($dbRes[2]) > 0){
                     return $dbRes;
