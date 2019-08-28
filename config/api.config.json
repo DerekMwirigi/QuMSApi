@@ -44,6 +44,12 @@
                 "url":"api/appointment/fetch",
                 "method":"GET",
                 "oauthToken":1
+            },
+            "view":{
+                "state":1,
+                "url":"api/appointment/view",
+                "method":"GET",
+                "oauthToken":0
             }
         },
         "video":{

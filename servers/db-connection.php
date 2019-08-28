@@ -5,11 +5,11 @@
     @require_once('adodb/adodb.inc.php');
     @require_once('adodb/adodb-active-record.inc.php');
 
-    $db_type  = 'postgres';//Driver={PostgreSQL}
-    $db_host  = '206.81.26.7:5432';
-    $db_user  = 'calista';
-    $db_pass  = 'r00t';
-    $db_name  = 'calista_loan';
+    $db_type  = 'mysqli';//Driver={PostgreSQL}
+    $db_host  = 'localhost:3309';
+    $db_user  = 'root';
+    $db_pass  = 'password';
+    $db_name  = 'qms';
 
     $db = ADONewConnection($db_type);
     $db->debug = true;

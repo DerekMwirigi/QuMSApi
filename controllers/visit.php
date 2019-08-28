@@ -43,10 +43,17 @@
         }
         
         public function fetch ($filterModel, $userModel){
-            $searchModel = $this->configModel["getList"];
-            // $searchModel["keyModel"] = array(
-            //     "buyerId"=>"=".$userModel["id"]
-            // );
+            if(!empty($filterModel)){ 
+                $searchModel = $this->configModel["viewList"];
+                $keyModel = array();
+                foreach ($filterModel as $key => $value){  
+                    $keyModel[$key] = "='".$value."'";
+                } 
+                $searchModel["keyModel"] = $keyModel;
+            } 
+            else {
+                $searchModel = $this->configModel["viewList"];
+            }
             $dbRes = $this->search($searchModel);
             if($dbRes[0] == 1){
                 return array(

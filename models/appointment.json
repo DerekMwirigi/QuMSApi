@@ -16,7 +16,7 @@
         },
         "keyModel":null
     },
-    "getList":{
+    "viewList":{
         "entityType":4,
         "columns":{
             "id":"",

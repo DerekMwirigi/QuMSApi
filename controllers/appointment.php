@@ -42,11 +42,52 @@
             return $validRes;
         }
         
+        public function view ($filterModel, $userModel){
+            if(!empty($filterModel)){ 
+                $searchModel = $this->configModel["viewList"];
+                $keyModel = array();
+                foreach ($filterModel as $key => $value){  
+                    $keyModel[$key] = "='".$value."'";
+                } 
+                $searchModel["keyModel"] = $keyModel;
+            } 
+            else {
+                $searchModel = $this->configModel["viewList"];
+            }
+            $dbRes = $this->search($searchModel);
+            if($dbRes[0] == 1){
+                return array(
+                    "success"=>true,
+                    "errors"=>null,
+                    "status_code"=>1,
+                    "status_message"=>'Succesful.',
+                    "message"=>"Found " . count($dbRes[2]) . " appointments",
+                    "data"=>$dbRes[2][0]
+                );
+            }
+            array_push($this->errors, $dbRes[1]);
+            return array(
+                "success"=>true,
+                "errors"=>$this->errors,
+                "status_code"=>0,
+                "status_message"=>'Failed.',
+                "message"=>"No appointments found.",
+                "data"=>null
+            );
+        }
+
         public function fetch ($filterModel, $userModel){
-            $searchModel = $this->configModel["getList"];
-            // $searchModel["keyModel"] = array(
-            //     "buyerId"=>"=".$userModel["id"]
-            // );
+            if(!empty($filterModel)){ 
+                $searchModel = $this->configModel["viewList"];
+                $keyModel = array();
+                foreach ($filterModel as $key => $value){  
+                    $keyModel[$key] = "='".$value."'";
+                } 
+                $searchModel["keyModel"] = $keyModel;
+            } 
+            else {
+                $searchModel = $this->configModel["viewList"];
+            }
             $dbRes = $this->search($searchModel);
             if($dbRes[0] == 1){
                 return array(
